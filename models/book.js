@@ -17,7 +17,6 @@ const bookSchema = new Schema({
         min: 10,
         max: 50
     }
-    //add buttons for update and delete
 }, {
     timestamps: true
 });

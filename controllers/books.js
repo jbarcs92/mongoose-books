@@ -5,6 +5,7 @@ module.exports = {
     show,
     new: newBook,
     create,
+    edit,
     update,
     delete: deleteBook
 };
@@ -18,25 +19,17 @@ async function index(req,res) {
 //     res.render('books/show', {
 //         book: Book.getOne(req.params.title)
 //     });
-// }
-
-// function getOne(title) {
-//     return books.find(book => book.title === title);
-// }
-
-
-// async function show(req,res) {
-//     const books = await Book.find({});
-//     res.render('books/show', { books });
-// }
+// }  
 
 async function show(req, res){
-    const booksOne = await Book.find({})
-    res.render('books/show', {
-        books: booksOne
-    })
+    const books = await Book.find({});
+    res.render('books/show', { books })
 }
 
+// function show(req, res) {
+//     const book = Book.getOne(req.params.title);
+//     res.render('book', { book });
+//   }
 
 function newBook(req,res) {
     res.render('books/new', { errorMsg: '' });
@@ -55,6 +48,10 @@ async function create(req, res) {
     }
 }
 
+async function edit (req, res) {
+
+}
+
 async function update(req, res) {
     try {
       await Book.findByIdAndUpdate(req.params.id, req.body, {new:true})
@@ -66,7 +63,7 @@ async function update(req, res) {
 
   async function deleteBook(req, res) {
     try {
-      await book.findByIdAndRemove(req.params.id);
+      await Book.findByIdAndRemove(req.params.title);
       res.redirect('/books');
     }  catch (err) {
       res.render('/books', { errorMsg: err.message });

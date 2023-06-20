@@ -5,8 +5,10 @@ const booksCtrl = require('../controllers/books');
 
 router.get('/', booksCtrl.index);
 router.get('/new', booksCtrl.new);
-router.post('/', booksCtrl.create);
 router.get('/:title', booksCtrl.show);
-//add routers for edit, update, and delete
+router.post('/', booksCtrl.create);
+router.delete('/:title', booksCtrl.delete);
+router.get('/:title/edit', booksCtrl.edit);
+router.put('/:title', booksCtrl.update);
 
 module.exports = router;

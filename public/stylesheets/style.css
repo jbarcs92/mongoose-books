@@ -6,3 +6,28 @@ body {
 a {
   color: #00B7FF;
 }
+
+table {
+  margin-top: 3vmin;
+}
+
+thead > tr {
+  display: flex;
+  justify-content: flex-start;
+}
+
+th {
+  padding-right: 15vmin;
+  text-align: left;
+  text-decoration: underline;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+td {
+  padding-right: 12vmin;
+  text-align: left;
+}
