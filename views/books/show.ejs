@@ -1,20 +1,20 @@
 <%- include('../partials/header') %>
 
 
-<h2>Book Title: <%= books.title %></h2>
-<h2>Author: <%= books.author %></h2>
-<h2>Category: <%= books.category %></h2>
-<h2>Price: <%= books.price %></h2>
+<h2>Book Title: <%= book.title %></h2>
+<h2>Author: <%= book.author %></h2>
+<h2>Category: <%= book.category %></h2>
+<h2>Price: <%= book.price %></h2>
 
 <form
-    action="/books/<%= books.title %>?_method=DELETE"
+    action="/books/<%= book.title %>?_method=DELETE"
     method="POST"
     class="delete-form"
 >
  <button type="submit">Remove Book</button>
 
 <form
-    action="/books/<%= books.title %>?_method=UPDATE"
+    action="/books/<%= book.title %>?_method=UPDATE"
     method="PUT"
     class="update-form"
 >

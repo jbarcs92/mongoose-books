@@ -21,10 +21,15 @@ async function index(req,res) {
 //     });
 // }  
 
-async function show(req, res){
-    const books = await Book.find({});
-    res.render('books/show', { books })
-}
+// async function show(req, res){
+//     const books = await Book.find({});
+//     res.render('books/show', { books })
+// }
+
+async function show(req, res) {
+    const book = await Book.findOne({ title: req.params.title });
+    res.render('books/show', { book });
+  }
 
 // function show(req, res) {
 //     const book = Book.getOne(req.params.title);
