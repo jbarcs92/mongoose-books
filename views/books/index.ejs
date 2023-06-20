@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<table>
+    <thead>
+      <tr>
+        <th>Book Title</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% books.forEach(function(b) { %>
+ 
+        <tr>
+          <td><%= b.title %></td>
+          <td><%= b.author %></td>
+          <td><%= b.category %></td>
+          <td><%= b.price %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+<%- include('../partials/footer') %>
