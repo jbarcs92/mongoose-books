@@ -2,6 +2,7 @@ const Book = require('../models/book');
 
 module.exports = {
     index,
+    show,
     new: newBook,
     create,
     update,
@@ -12,6 +13,30 @@ async function index(req,res) {
     const books = await Book.find({});
     res.render('books/index', { books });
 }
+
+// function show(req, res) {
+//     res.render('books/show', {
+//         book: Book.getOne(req.params.title)
+//     });
+// }
+
+// function getOne(title) {
+//     return books.find(book => book.title === title);
+// }
+
+
+// async function show(req,res) {
+//     const books = await Book.find({});
+//     res.render('books/show', { books });
+// }
+
+async function show(req, res){
+    const booksOne = await Book.find({})
+    res.render('books/show', {
+        books: booksOne
+    })
+}
+
 
 function newBook(req,res) {
     res.render('books/new', { errorMsg: '' });
