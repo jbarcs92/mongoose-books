@@ -12,12 +12,11 @@
     class="delete-form"
 >
  <button type="submit">Remove Book</button>
+</form>
 
-<form
-    action="/books/<%= book.title %>?_method=UPDATE"
-    method="PUT"
-    class="update-form"
->
- <button type="submit">Update Book</button>
+<!-- <button href="books/<%= book.title %>/edit" type="submit">Update Book</button> -->
+
+<a href="/books/<%= book.title %>/edit">Update Book</a>
+
 
 <%- include('../partials/footer') %>

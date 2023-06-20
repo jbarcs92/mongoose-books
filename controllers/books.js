@@ -53,22 +53,25 @@ async function create(req, res) {
     }
 }
 
-async function edit (req, res) {
-
+ async function edit (req, res) {
+    const book = await Book.findOne({ title: req.params.title });
+    res.render('books/edit', {
+        title: 'Edit To-Do'
+    });
 }
 
 async function update(req, res) {
     try {
-      await Book.findByIdAndUpdate(req.params.id, req.body, {new:true})
-      res.redirect(`/books/${req.params.id}`);
+      await Book.findOneAndUpdate({ title: req.params.title })
+      res.redirect(`/books/${req.params.title}`);
     }  catch (err) {
-      res.render(`/books/${req.params.id}/edit`, { errorMsg: err.message });
+      res.render(`/books/${req.params.title}/edit`, { errorMsg: err.message });
     }
   }
 
   async function deleteBook(req, res) {
     try {
-      await Book.findByIdAndRemove(req.params.title);
+      await Book.findOneAndRemove({ title: req.params.title });
       res.redirect('/books');
     }  catch (err) {
       res.render('/books', { errorMsg: err.message });
